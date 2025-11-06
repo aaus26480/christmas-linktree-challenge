@@ -70,19 +70,24 @@ body {
 /* Define the falling motion */
 /* --- Optimized Snowfall Animation (Start) --- */
 
+/* --- Optimized Snowfall Animation - UPDATED for JS Interaction --- */
+
 @keyframes snow-fall-1 {
     0% { transform: translateY(-100vh) translateX(0); }
-    100% { transform: translateY(100vh) translateX(50px); }
+    /* Use calc() to add the JS variable value to the default drift (50px) */
+    100% { transform: translateY(100vh) translateX(calc(50px + var(--snow-drift-x, 0px))); } 
 }
 
 @keyframes snow-fall-2 {
     0% { transform: translateY(-100vh) translateX(0); }
-    100% { transform: translateY(100vh) translateX(-30px); }
+    /* Use calc() to add the JS variable value to the default drift (-30px) */
+    100% { transform: translateY(100vh) translateX(calc(-30px + var(--snow-drift-x, 0px))); } 
 }
 
 @keyframes snow-fall-3 {
     0% { transform: translateY(-100vh) translateX(0); }
-    100% { transform: translateY(100vh) translateX(20px); }
+    /* Use calc() to add the JS variable value to the default drift (20px) */
+    100% { transform: translateY(100vh) translateX(calc(20px + var(--snow-drift-x, 0px))); } 
 }
 
 .snow-layer {
@@ -205,4 +210,5 @@ h1 {
         padding: 12px 15px;
         font-size: 0.9em;
     }
+
 }
