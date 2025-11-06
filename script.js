@@ -4,7 +4,7 @@
 
 // IMPORTANT: Replace the placeholder URL below with a direct public link 
 // to an actual .mp3 sound file (e.g., a simple jingle or click sound).
-const JINGLE_SOUND_URL = 'https://github.com/aaus26480/christmas-linktree-challenge/raw/refs/heads/main/assets/jingle.mp3'; 
+const JINGLE_SOUND_URL = './assets/jingle.mp3'; 
 
 // Function to play the sound
 function playJingle() {
@@ -50,4 +50,5 @@ body.addEventListener('mousemove', (e) => {
     // 3. Update the CSS Variable in style.css to control the snowfall animation
     document.documentElement.style.setProperty('--snow-drift-x', `${snowDrift}px`);
 });
+
 
