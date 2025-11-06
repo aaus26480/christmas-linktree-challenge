@@ -1,0 +1,208 @@
+/* CSS Variables for Christmas Colors */
+:root {
+    --color-red: #c93631;
+    --color-green: #0c6a38;
+    --color-gold: #ffc82f;
+    --color-background: #0d1b2a; /* Dark background for winter night feel */
+    --color-snow: #ffffff;
+}
+
+body {
+    background: var(--color-background);
+    color: var(--color-snow);
+    font-family: 'Georgia', serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex; /* Centering the content */
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    padding-top: 50px;
+}
+
+.christmas-link-tree {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Link Button Styling (Ornament Look) */
+.link-button {
+    display: block;
+    width: 80%;
+    max-width: 400px;
+    margin: 15px auto;
+    padding: 15px 20px;
+
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--color-snow);
+    transition: all 0.3s ease;
+
+    /* 3D raised button effect */
+    box-shadow: 0 5px 0 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Red Button Variant */
+.ornament-red {
+    background-color: var(--color-red);
+    box-shadow: 0 5px 0 0 #a02a26;
+}
+
+/* Green Button Variant */
+.ornament-green {
+    background-color: var(--color-green);
+    box-shadow: 0 5px 0 0 #074722;
+}
+
+/* Hover Effect: Lift up slightly and add glow */
+.link-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 0 rgba(0, 0, 0, 0.4);
+    filter: brightness(1.1);
+}
+
+
+/* --- Winning Factor 1: Snowfall Animation --- */
+
+/* Define the falling motion */
+/* --- Optimized Snowfall Animation (Start) --- */
+
+@keyframes snow-fall-1 {
+    0% { transform: translateY(-100vh) translateX(0); }
+    100% { transform: translateY(100vh) translateX(50px); }
+}
+
+@keyframes snow-fall-2 {
+    0% { transform: translateY(-100vh) translateX(0); }
+    100% { transform: translateY(100vh) translateX(-30px); }
+}
+
+@keyframes snow-fall-3 {
+    0% { transform: translateY(-100vh) translateX(0); }
+    100% { transform: translateY(100vh) translateX(20px); }
+}
+
+.snow-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+    /* This background is now the 3rd layer of snow (biggest, slowest) */
+    background-image: radial-gradient(var(--color-snow) 1.2px, transparent 0);
+    background-size: 40px 40px;
+    animation: snow-fall-3 35s linear infinite;
+    animation-delay: -20s;
+    opacity: 0.6;
+}
+
+/* Creating individual snow layers using pseudo-elements */
+.snow-layer::before,
+.snow-layer::after {
+    content: '';
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    width: 100%;
+    height: 200vh;
+    background-repeat: repeat;
+    pointer-events: none;
+}
+
+/* Layer 1: Small, fast snow */
+.snow-layer::before {
+    background-image: radial-gradient(var(--color-snow) 0.5px, transparent 0);
+    background-size: 20px 20px;
+    animation: snow-fall-1 15s linear infinite;
+    opacity: 0.8;
+}
+
+/* Layer 2: Medium, moderate snow */
+.snow-layer::after {
+    background-image: radial-gradient(var(--color-snow) 0.8px, transparent 0);
+    background-size: 30px 30px;
+    animation: snow-fall-2 25s linear infinite;
+    animation-delay: -10s;
+    opacity: 0.7;
+}
+
+/* --- Optimized Snowfall Animation (End) --- */
+
+/* --- Profile Section Styling --- */
+.profile-section {
+    margin-bottom: 30px;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid var(--color-gold);
+    box-shadow: 0 0 15px rgba(255, 200, 47, 0.7);
+    object-fit: cover;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.profile-avatar:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+h1 {
+    /* Đảm bảo Google Fonts đã được thêm */
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 2.8em;
+    color: var(--color-snow);
+    /* Candy cane text shadow */
+    text-shadow: 3px 3px 0px var(--color-red),
+    -3px -3px 0px var(--color-green);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.greeting {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4em;
+    color: var(--color-gold);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    margin-top: 0;
+}
+
+/* --- Responsiveness (Should be at the very end) --- */
+@media (max-width: 600px) {
+    body {
+        padding-top: 20px;
+    }
+
+    .christmas-link-tree {
+        padding: 10px;
+    }
+
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+        border-width: 3px;
+    }
+
+    h1 {
+        font-size: 2em;
+        text-shadow: 2px 2px 0px var(--color-red),
+        -2px -2px 0px var(--color-green);
+    }
+
+    .greeting {
+        font-size: 1.2em;
+    }
+
+    .link-button {
+        width: 95%;
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+}
